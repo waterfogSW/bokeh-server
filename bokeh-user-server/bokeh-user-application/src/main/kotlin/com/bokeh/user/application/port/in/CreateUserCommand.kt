@@ -1,9 +1,8 @@
 package com.bokeh.user.application.port.`in`
 
-import java.util.*
+import com.bokeh.user.application.vo.CreateUserParam
 
-data class CreateUserCommand(
-    val username: String,
-    val password: String,
-    val email: String,
-)
+interface CreateUserCommand {
+
+    fun createUser(param: CreateUserParam)
+}
