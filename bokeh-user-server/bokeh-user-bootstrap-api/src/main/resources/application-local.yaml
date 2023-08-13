@@ -14,3 +14,8 @@ spring:
     properties:
       jdbc:
         time-zone: Asia/Seoul
+
+jwt:
+  secret: secret
+  expiration: 86400000
+  refresh-expiration: 86400000
