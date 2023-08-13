@@ -23,7 +23,9 @@ data class User(
 
     companion object {
         fun validatePassword(rawPassword: String) {
-            require(rawPassword.isNotBlank() && rawPassword.length in 8..20)
+            require(rawPassword.isNotBlank() && rawPassword.length in 8..20) {
+                ErrorMessage.INVALID_PASSWORD_SET.msg
+            }
         }
     }
 
