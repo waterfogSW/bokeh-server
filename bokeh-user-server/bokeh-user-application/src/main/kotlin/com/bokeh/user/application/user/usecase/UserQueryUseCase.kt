@@ -10,6 +10,8 @@ import java.util.*
 class UserQueryUseCase(
     private val userPort: UserPort,
 ) : UserQuery {
+    override fun getUserByEmail(email: String) = userPort.loadUserByEmail(email = email)
+
 
     override fun getUserInfoById(id: UUID): UserInfo {
         val findUser = userPort.loadUserById(id = id)

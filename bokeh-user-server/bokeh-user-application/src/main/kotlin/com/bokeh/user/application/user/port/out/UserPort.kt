@@ -7,4 +7,6 @@ interface UserPort {
     fun saveUser(user: User)
 
     fun loadUserById(id: UUID): User
+
+    fun loadUserByEmail(email: String): User
 }

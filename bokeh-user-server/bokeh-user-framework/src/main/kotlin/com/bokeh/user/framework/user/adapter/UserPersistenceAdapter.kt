@@ -19,6 +19,12 @@ class UserPersistenceAdapter(
             .let { userEntityMapper.toDomain(it) }
     }
 
+    override fun loadUserByEmail(email: String): User {
+        return userJpaRepository.findByEmail(email)
+            .orElseThrow { throw NotFoundException("User with email $email not found") }
+            .let { userEntityMapper.toDomain(it) }
+    }
+
     override fun saveUser(user: User) {
         val entity = userEntityMapper.toEntity(user)
         userJpaRepository.save(entity)
