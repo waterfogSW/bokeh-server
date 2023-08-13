@@ -1,6 +1,6 @@
 package com.bokeh.user.application.port.out
 
-import com.bokeh.user.domain.User
+import com.bokeh.user.domain.entity.User
 
 interface SaveUserPort {
 

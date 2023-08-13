@@ -1,4 +1,4 @@
-package com.bokeh.user.constant
+package com.bokeh.user.domain.constant
 
 enum class ErrorMessage(
     val msg: String

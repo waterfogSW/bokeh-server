@@ -3,7 +3,7 @@ package com.bokeh.user.application.service
 import com.bokeh.user.application.port.`in`.CreateUserCommand
 import com.bokeh.user.application.port.out.SaveUserPort
 import com.bokeh.user.application.vo.CreateUserParam
-import com.bokeh.user.domain.User
+import com.bokeh.user.domain.entity.User
 import org.springframework.stereotype.Service
 
 @Service

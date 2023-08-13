@@ -1,6 +1,6 @@
-package com.bokeh.user.domain
+package com.bokeh.user.domain.entity
 
-import com.bokeh.user.constant.ErrorMessage
+import com.bokeh.user.domain.constant.ErrorMessage
 import java.util.*
 
 data class User(
