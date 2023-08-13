@@ -15,13 +15,15 @@ data class User(
             ErrorMessage.INVALID_USERNAME_SET.msg
         }
 
-        require(password.isNotBlank() && password.length in 8..20) {
-            ErrorMessage.INVALID_PASSWORD_SET.msg
-        }
-
         val emailRegex = "[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}".toRegex()
         require(email.isNotBlank() && emailRegex.matches(email)) {
             ErrorMessage.INVALID_EMAIL_SET.msg
+        }
+    }
+
+    companion object {
+        fun validatePassword(rawPassword: String) {
+            require(rawPassword.isNotBlank() && rawPassword.length in 8..20)
         }
     }
 

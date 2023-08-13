@@ -12,4 +12,6 @@ dependencies {
     implementation("org.springframework:spring-tx")
     implementation("org.springframework:spring-context")
     implementation("org.springframework.data:spring-data-commons")
+
+    implementation("org.mindrot:jbcrypt:0.4")
 }
