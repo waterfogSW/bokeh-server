@@ -21,6 +21,13 @@ data class User(
         }
     }
 
+    fun checkPasswordMatch(
+        rawPassword: String,
+        matchOperation: (String, String) -> Boolean
+    ) {
+        require(matchOperation(rawPassword, password)) { ErrorMessage.INVALID_PASSWORD.msg }
+    }
+
     companion object {
         fun validatePassword(rawPassword: String) {
             require(rawPassword.isNotBlank() && rawPassword.length in 8..20) {
