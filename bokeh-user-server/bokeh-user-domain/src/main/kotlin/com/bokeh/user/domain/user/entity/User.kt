@@ -1,10 +1,10 @@
-package com.bokeh.user.domain.entity
+package com.bokeh.user.domain.user.entity
 
-import com.bokeh.user.domain.constant.ErrorMessage
+import com.bokeh.user.domain.user.constant.ErrorMessage
 import java.util.*
 
 data class User(
-    val id: UUID = UUID.randomUUID(),
+    val id: UUID? = null,
     val username: String,
     val password: String,
     val email: String,
