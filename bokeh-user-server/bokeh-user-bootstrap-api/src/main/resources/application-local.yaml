@@ -1,0 +1,13 @@
+spring:
+  docker:
+    compose:
+      file: ./bokeh-user-server/bokeh-user-bootstrap-api/docker-compose.yml
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://db:3306/bokeh-user?useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
