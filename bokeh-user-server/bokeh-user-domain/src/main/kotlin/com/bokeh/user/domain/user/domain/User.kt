@@ -1,4 +1,4 @@
-package com.bokeh.user.domain.user.entity
+package com.bokeh.user.domain.user.domain
 
 import com.bokeh.user.domain.user.constant.ErrorMessage
 import java.util.*

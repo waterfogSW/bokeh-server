@@ -1,7 +1,7 @@
 package com.bokeh.user.application.user.vo
 
-import com.bokeh.user.domain.user.entity.Role
-import com.bokeh.user.domain.user.entity.User
+import com.bokeh.user.domain.user.domain.Role
+import com.bokeh.user.domain.user.domain.User
 import java.util.*
 
 data class UserInfo(

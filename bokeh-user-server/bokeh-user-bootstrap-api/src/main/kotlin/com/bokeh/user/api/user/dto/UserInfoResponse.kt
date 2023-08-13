@@ -1,7 +1,7 @@
 package com.bokeh.user.api.user.dto
 
 import com.bokeh.user.application.user.vo.UserInfo
-import com.bokeh.user.domain.user.entity.Role
+import com.bokeh.user.domain.user.domain.Role
 import java.util.*
 
 data class UserInfoResponse(

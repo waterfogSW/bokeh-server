@@ -1,6 +1,6 @@
 package com.bokeh.user.framework.user.entity
 
-import com.bokeh.user.domain.user.entity.Role
+import com.bokeh.user.domain.user.domain.Role
 import com.bokeh.user.framework.common.entity.BaseEntity
 import jakarta.persistence.*
 

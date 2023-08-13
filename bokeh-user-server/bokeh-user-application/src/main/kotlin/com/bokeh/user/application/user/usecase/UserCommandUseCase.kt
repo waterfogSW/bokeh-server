@@ -3,7 +3,7 @@ package com.bokeh.user.application.user.usecase
 import com.bokeh.user.application.user.port.`in`.UserCommand
 import com.bokeh.user.application.user.port.out.UserPort
 import com.bokeh.user.application.user.vo.CreateUserParam
-import com.bokeh.user.domain.user.entity.User
+import com.bokeh.user.domain.user.domain.User
 import org.springframework.stereotype.Component
 
 @Component

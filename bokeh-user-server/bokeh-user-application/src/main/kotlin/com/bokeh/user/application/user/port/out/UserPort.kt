@@ -1,6 +1,6 @@
 package com.bokeh.user.application.user.port.out
 
-import com.bokeh.user.domain.user.entity.User
+import com.bokeh.user.domain.user.domain.User
 import java.util.*
 
 interface UserPort {
