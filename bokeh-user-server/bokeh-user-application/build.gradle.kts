@@ -14,4 +14,6 @@ dependencies {
     implementation("org.springframework.data:spring-data-commons")
 
     implementation("org.mindrot:jbcrypt:0.4")
+
+    implementation("com.auth0:java-jwt:4.4.0")
 }

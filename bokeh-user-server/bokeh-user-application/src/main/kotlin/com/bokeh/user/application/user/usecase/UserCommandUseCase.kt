@@ -1,7 +1,7 @@
 package com.bokeh.user.application.user.usecase
 
 import com.bokeh.user.application.common.annotation.UseCase
-import com.bokeh.user.application.common.util.BCryptPasswordEncoder
+import com.bokeh.user.application.user.util.BCryptPasswordEncoder
 import com.bokeh.user.application.user.port.`in`.UserCommand
 import com.bokeh.user.application.user.port.out.UserPort
 import com.bokeh.user.application.user.vo.CreateUserParam

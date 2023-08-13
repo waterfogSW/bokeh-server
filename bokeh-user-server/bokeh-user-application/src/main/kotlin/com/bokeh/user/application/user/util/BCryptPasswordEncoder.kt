@@ -1,4 +1,4 @@
-package com.bokeh.user.application.common.util
+package com.bokeh.user.application.user.util
 
 import org.mindrot.jbcrypt.BCrypt
 
