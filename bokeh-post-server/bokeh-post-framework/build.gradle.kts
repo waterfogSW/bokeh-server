@@ -9,4 +9,6 @@ bootJar.enabled = false
 dependencies {
     implementation(project(":bokeh-post-domain"))
     implementation(project(":bokeh-post-application"))
+
+    implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 }
