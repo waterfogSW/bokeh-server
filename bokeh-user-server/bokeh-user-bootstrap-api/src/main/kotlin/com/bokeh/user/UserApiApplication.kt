@@ -1,4 +1,4 @@
-package com.bokeh.user.api
+package com.bokeh.user
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
