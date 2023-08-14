@@ -12,5 +12,5 @@ dependencies {
     implementation("org.springframework.boot:spring-boot")
 
     implementation("org.mindrot:jbcrypt:0.4")
-    implementation("com.auth0:java-jwt:4.4.0")
+    implementation("io.jsonwebtoken:jjwt:0.9.1")
 }
