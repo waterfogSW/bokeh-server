@@ -16,6 +16,8 @@ spring:
         time-zone: Asia/Seoul
 
 jwt:
-  secret: secret
-  expiration: 86400000
-  refresh-expiration: 86400000
+  secret: Bj5eT2ZMn3CfXk9Ui6GvV4YqQ2Dc9AtBm7FeR8HtK9OvZ6Px
+  # millisecond - 15 minutes
+  expiration: 900000
+  # millisecond - 7 day
+  refresh-expiration: 604800000
