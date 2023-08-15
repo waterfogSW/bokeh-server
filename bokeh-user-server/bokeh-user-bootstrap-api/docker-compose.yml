@@ -8,3 +8,7 @@ services:
       MYSQL_DATABASE: bokeh-user
     ports:
       - "3306:3306"
+  redis:
+    image: redis:7.0.12
+    ports:
+      - "6379:6379"
