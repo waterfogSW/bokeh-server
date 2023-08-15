@@ -2,12 +2,12 @@ package com.bokeh.user.framework.user.adapter
 
 import com.bokeh.user.application.user.port.out.UserPort
 import com.bokeh.user.domain.user.domain.User
-import com.bokeh.user.framework.common.annotation.PersistenceAdapter
+import com.bokeh.user.framework.common.annotation.Adapter
 import com.bokeh.user.framework.common.exception.NotFoundException
 import com.bokeh.user.framework.user.mapper.UserEntityMapper
 import java.util.*
 
-@PersistenceAdapter
+@Adapter
 class UserPersistenceAdapter(
     private val userJpaRepository: UserRepository,
     private val userEntityMapper: UserEntityMapper,
