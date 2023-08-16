@@ -12,12 +12,8 @@ class UserAuthTokenRedisAdapter(
 ) : UserAuthPort {
 
     override fun saveRefreshToken(userId: UUID, refreshToken: UserAuthToken) {
-        val userAuthTokenHash = UserAuthTokenHash.of(
-            id = userId,
-            userToken = refreshToken
-        )
+        val userAuthTokenHash = UserAuthTokenHash.from(userToken = refreshToken)
         userAuthTokenRedisRepository.save(userAuthTokenHash)
-
     }
 
 

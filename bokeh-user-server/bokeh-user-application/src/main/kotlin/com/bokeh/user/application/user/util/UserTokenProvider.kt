@@ -24,9 +24,20 @@ class UserTokenProvider(
 
 
     fun generateAccessToken(userAuth: UserAuth): UserAuthToken {
-        val claims = userAuth.toClaims().toMutableMap()
+        val claims = userAuth.getClaims().toMutableMap()
         claims[TOKEN_TYPE_KEY] = ACCESS_TOKEN_TYPE
-        return generateToken(claims, jwtProperties.expiration)
+
+        val token = generateToken(
+            subject = userAuth.id.toString(),
+            claims = claims,
+            expiration = jwtProperties.expiration
+        )
+
+        return UserAuthToken(
+            userId = userAuth.id,
+            token = token,
+            expiresIn = jwtProperties.expiration,
+        )
     }
 
     fun generateRefreshToken(userAuth: UserAuth): UserAuthToken {
@@ -34,24 +45,29 @@ class UserTokenProvider(
             USER_ID_KEY to userAuth.id.toString(),
             TOKEN_TYPE_KEY to REFRESH_TOKEN_TYPE,
         )
-        return generateToken(claims, jwtProperties.refreshExpiration)
+
+        val token = generateToken(
+            subject = userAuth.id.toString(),
+            claims = claims,
+            expiration = jwtProperties.expiration
+        )
+
+        return UserAuthToken(
+            userId = userAuth.id,
+            token = token,
+            expiresIn = jwtProperties.expiration,
+        )
     }
 
     private fun generateToken(
+        subject: String,
         claims: Map<String, String>,
         expiration: Long,
-    ): UserAuthToken {
-        val token = JWT.create()
-            .withIssuedAt(Date())
-            .withExpiresAt(Date(System.currentTimeMillis() + expiration))
-            .withSubject(claims[USER_ID_KEY].toString())
-            .withPayload(claims)
-            .sign(algorithm)
-
-        return UserAuthToken(
-            token = token,
-            expiresIn = expiration,
-        )
-    }
+    ) = JWT.create()
+        .withIssuedAt(Date())
+        .withExpiresAt(Date(System.currentTimeMillis() + expiration))
+        .withSubject(subject)
+        .withPayload(claims)
+        .sign(algorithm)
 
 }

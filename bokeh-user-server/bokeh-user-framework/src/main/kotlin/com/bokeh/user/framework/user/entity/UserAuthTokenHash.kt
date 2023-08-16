@@ -17,9 +17,9 @@ data class UserAuthTokenHash(
 
     companion object {
         private const val MILLIS_IN_SECOND = 1000L
-        fun of(id: UUID, userToken: UserAuthToken): UserAuthTokenHash {
+        fun from(userToken: UserAuthToken): UserAuthTokenHash {
             return UserAuthTokenHash(
-                id = id,
+                id = userToken.userId,
                 token = userToken.token,
                 expiredAt = userToken.expiresIn / MILLIS_IN_SECOND
             )

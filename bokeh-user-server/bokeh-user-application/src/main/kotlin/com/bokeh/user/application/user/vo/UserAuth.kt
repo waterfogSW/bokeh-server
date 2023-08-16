@@ -11,9 +11,8 @@ data class UserAuth(
     val role: Role,
 ) {
 
-    fun toClaims(): Map<String, String> {
+    fun getClaims(): Map<String, String> {
         return mapOf(
-            "id" to id.toString(),
             "username" to username,
             "email" to email,
             "role" to role.toString(),
