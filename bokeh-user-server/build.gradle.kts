@@ -36,4 +36,9 @@ allprojects {
             languageVersion.set(JavaLanguageVersion.of(17))
         }
     }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
+
 }
