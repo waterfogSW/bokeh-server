@@ -1,23 +1,23 @@
 plugins {
     `java-library`
-    id(Plugins.SPRING_BOOT) version PluginVersion.SPRING_BOOT_VERSION
-    id(Plugins.SPRING_DEPENDENCY_MANAGEMENT) version PluginVersion.SPRING_DEPENDENCY_MANAGEMENT_VERSION
-    id(Plugins.KOTLIN_JVM) version PluginVersion.KOTLIN_VERSION
-    id(Plugins.KOTLIN_SPRING) version PluginVersion.KOTLIN_VERSION
+    id("org.springframework.boot") version "3.1.2"
+    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("org.jetbrains.kotlin.jvm") version "1.9.0"
+    id("org.jetbrains.kotlin.plugin.spring") version "1.9.0"
 }
 
 allprojects {
-    group = ProjectConfig.GROUP_NAME
-    version = ProjectConfig.PROJECT_VERSION
+    group = "com.bokeh"
+    version = "1.0-SNAPSHOT"
 
     repositories {
         mavenCentral()
     }
 
-    apply(plugin = Plugins.SPRING_BOOT)
-    apply(plugin = Plugins.SPRING_DEPENDENCY_MANAGEMENT)
-    apply(plugin = Plugins.KOTLIN_JVM)
-    apply(plugin = Plugins.KOTLIN_SPRING)
+    apply(plugin = "org.springframework.boot")
+    apply(plugin = "io.spring.dependency-management")
+    apply(plugin = "org.jetbrains.kotlin.jvm")
+    apply(plugin = "org.jetbrains.kotlin.plugin.spring")
 
     java {
         toolchain {
