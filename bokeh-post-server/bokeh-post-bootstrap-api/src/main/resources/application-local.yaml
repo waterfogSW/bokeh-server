@@ -1,0 +1,4 @@
+spring:
+  docker:
+    compose:
+      file: ./bokeh-post-server/bokeh-post-bootstrap-api/docker-compose.yaml
