@@ -9,7 +9,5 @@ bootJar.enabled = false
 dependencies {
     implementation(project(":bokeh-post-domain"))
 
-    implementation("org.springframework:spring-tx")
-    implementation("org.springframework:spring-context")
-    implementation("org.springframework.data:spring-data-commons")
+    implementation("org.springframework.boot:spring-boot")
 }
