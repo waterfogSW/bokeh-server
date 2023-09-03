@@ -9,12 +9,7 @@ bootJar.enabled = false
 dependencies {
     implementation(project(":bokeh-user-domain"))
 
-    // spring boot
     implementation("org.springframework.boot:spring-boot")
-
-    // password encryption
-    implementation("org.mindrot:jbcrypt:0.4")
-
-    // jwt
+    implementation("org.mindrot:jbcrypt:0.4") // for password hashing
     implementation("com.auth0:java-jwt:4.4.0")
 }
