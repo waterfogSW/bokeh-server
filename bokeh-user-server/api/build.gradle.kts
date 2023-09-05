@@ -1,9 +1,9 @@
 apply(plugin = "kotlin-kapt")
 
 dependencies {
-    implementation(project(":bokeh-user-domain"))
-    implementation(project(":bokeh-user-application"))
-    implementation(project(":bokeh-user-framework"))
+    implementation(project(":domain"))
+    implementation(project(":application"))
+    implementation(project(":infrastructure"))
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")

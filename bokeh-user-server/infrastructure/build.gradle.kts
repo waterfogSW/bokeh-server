@@ -7,8 +7,8 @@ jar.enabled = true
 bootJar.enabled = false
 
 dependencies {
-    implementation(project(":bokeh-user-domain"))
-    implementation(project(":bokeh-user-application"))
+    implementation(project(":domain"))
+    implementation(project(":application"))
 
     // db
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
