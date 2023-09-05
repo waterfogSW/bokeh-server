@@ -7,7 +7,7 @@ jar.enabled = true
 bootJar.enabled = false
 
 dependencies {
-    implementation(project(":bokeh-post-domain"))
+    implementation(project(":domain"))
 
     implementation("org.springframework.boot:spring-boot")
 }

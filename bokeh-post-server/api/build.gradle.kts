@@ -1,9 +1,9 @@
 apply(plugin = "kotlin-kapt")
 
 dependencies {
-    implementation(project(":bokeh-post-domain"))
-    implementation(project(":bokeh-post-application"))
-    implementation(project(":bokeh-post-framework"))
+    implementation(project(":domain"))
+    implementation(project(":application"))
+    implementation(project(":infrastructure"))
 
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-validation")
