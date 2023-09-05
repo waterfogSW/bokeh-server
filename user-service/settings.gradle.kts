@@ -1,4 +1,4 @@
-rootProject.name = "bokeh-user-server"
+rootProject.name = "user-service"
 include("domain")
 include("application")
 include("infrastructure")
