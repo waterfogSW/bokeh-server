@@ -1,0 +1,41 @@
+name: User Service Build and Push Docker Images
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/user_service_ci.yaml'
+      - 'user-service/**'
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Out Code
+        uses: actions/checkout@v2
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+      - name: Get ECR User-Service URL
+        id: get_user_ecr_url
+        run: |
+          url=$(aws ssm get-parameter --name bokeh-user_service-ecr_url --query 'Parameter.Value' --output text)
+          echo "::set-output name=url::$url"
+
+      - name: Login to Amazon ECR(User Service)
+        id: login-ecr
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | 
+          docker login --username AWS --password-stdin ${{ steps.get_user_ecr_url.outputs.url }}
+
+      - name: Build and Push User-Service
+        run: |
+          cd user-service
+          docker build -t ${{ steps.get_user_ecr_url.outputs.url }} .
+          docker push ${{ steps.get_user_ecr_url.outputs.url }}
