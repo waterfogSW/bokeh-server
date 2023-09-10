@@ -1,8 +1,11 @@
-name: Build and Push Docker Images
+name: Post Service Build and Push Docker Images
 
 on:
   push:
     branches: [ main ]
+    paths:
+      - '.github/workflows/post_service_ci.yaml'
+      - 'post-service/**'
 
 jobs:
   build_and_push:
@@ -25,29 +28,14 @@ jobs:
           url=$(aws ssm get-parameter --name bokeh-post_service-ecr_url --query 'Parameter.Value' --output text)
           echo "::set-output name=url::$url"
 
-      - name: Get ECR User-Service URL
-        id: get_user_ecr_url
+      - name: Login to Amazon ECR(Post Service)
+        id: login-ecr
         run: |
-          url=$(aws ssm get-parameter --name bokeh-user_service-ecr_url --query 'Parameter.Value' --output text)
-          echo "::set-output name=url::$url"
-
-      - name: Login to Amazon ECR
-        id: login-ecr-public
-        uses: aws-actions/amazon-ecr-login@v1
-        with:
-          mask-password: 'true'
-          registry-type: public
-          aws-region: us-east-1
-          skip-logout: 'false'
+          aws ecr-public get-login-password --region us-east-1 | 
+          docker login --username AWS --password-stdin ${{ steps.get_post_ecr_url.outputs.url }}
 
       - name: Build and Push Post-Service
         run: |
           cd post-service
           docker build -t ${{ steps.get_post_ecr_url.outputs.url }} .
           docker push ${{ steps.get_post_ecr_url.outputs.url }}
-
-      - name: Build and Push User-Service
-        run: |
-          cd user-service
-          docker build -t ${{ steps.get_user_ecr_url.outputs.url }} .
-          docker push ${{ steps.get_user_ecr_url.outputs.url }}
