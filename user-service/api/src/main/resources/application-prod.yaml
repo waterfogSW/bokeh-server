@@ -18,3 +18,4 @@ spring:
     properties:
       jdbc:
         time-zone: Asia/Seoul
+    database-platform: org.hibernate.dialect.MySQL8Dialect
