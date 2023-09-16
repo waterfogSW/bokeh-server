@@ -1,4 +1,4 @@
-name: Post Service Build and Push Docker Images
+name: Post Service CI
 
 on:
   push:
