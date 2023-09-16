@@ -20,6 +20,16 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
       - name: Grant execute permission for gradlew
         run: |
           cd user-service
@@ -28,7 +38,7 @@ jobs:
       - name: Run Tests with Gradle
         run: |
           cd user-service
-          ./gradlew test --continue
+          ./gradlew test --continue --build-cache
 
   build_and_push_image:
     needs: run_tests
