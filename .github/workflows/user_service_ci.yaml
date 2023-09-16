@@ -28,7 +28,7 @@ jobs:
       - name: Run Tests with Gradle
         run: |
           cd user-service
-          ./gradlew test
+          ./gradlew test --continue
 
   build_and_push_image:
     needs: run_tests
