@@ -31,46 +31,38 @@ class UserTokenProvider(
     }
 
     fun generateAccessToken(userAuth: UserAuth): UserAuthToken {
-        val claims = userAuth.getClaims().toMutableMap()
-        claims[TOKEN_TYPE_KEY] = ACCESS_TOKEN_TYPE
+        val claims: Map<String, String> = userAuth.getClaims()
+        val accessTokenClaims: Map<String, String> = claims + (TOKEN_TYPE_KEY to ACCESS_TOKEN_TYPE)
 
-        val token = generateToken(
-            subject = userAuth.getSubject(),
-            claims = claims,
-            expiration = jwtProperties.expiration
-        )
-
-        return UserAuthToken(
-            userId = userAuth.id,
-            token = token,
-            expiresIn = jwtProperties.expiration,
-        )
+        return createUserAuthToken(userAuth, accessTokenClaims)
     }
 
     fun generateRefreshToken(userAuth: UserAuth): UserAuthToken {
-        val claims = mapOf(
-            USER_ID_KEY to userAuth.id.toString(),
+        val claims: Map<String, String> = mapOf(
+            USER_ID_KEY to userAuth.getSubject(),
             TOKEN_TYPE_KEY to REFRESH_TOKEN_TYPE,
         )
 
-        val token = generateToken(
+        return createUserAuthToken(userAuth, claims)
+    }
+
+    private fun createUserAuthToken(
+        userAuth: UserAuth,
+        claims: Map<String, String>
+    ): UserAuthToken {
+        val token: String = generateToken(
             subject = userAuth.getSubject(),
             claims = claims,
             expiration = jwtProperties.expiration
         )
-
-        return UserAuthToken(
-            userId = userAuth.id,
-            token = token,
-            expiresIn = jwtProperties.expiration,
-        )
+        return UserAuthToken(userAuth.id, token, jwtProperties.expiration)
     }
 
     private fun generateToken(
         subject: String,
         claims: Map<String, String>,
         expiration: Long,
-    ) = JWT.create()
+    ): String = JWT.create()
         .withIssuedAt(Date())
         .withExpiresAt(Date(System.currentTimeMillis() + expiration))
         .withSubject(subject)
