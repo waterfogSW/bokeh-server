@@ -13,13 +13,18 @@ data class UserAuth(
 
     fun getClaims(): Map<String, String> {
         return mapOf(
-            "username" to username,
-            "email" to email,
-            "role" to role.toString(),
+            USERNAME to username,
+            EMAIL to email,
+            ROLE to role.toString(),
         )
     }
 
     companion object {
+
+        const val USERNAME = "username"
+        const val EMAIL = "email"
+        const val ROLE = "role"
+
         fun from(user: User): UserAuth {
             val id = user.id ?: throw IllegalArgumentException("User id must not be null")
             return UserAuth(
