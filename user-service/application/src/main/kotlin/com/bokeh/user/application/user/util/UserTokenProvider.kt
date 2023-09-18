@@ -35,7 +35,7 @@ class UserTokenProvider(
         claims[TOKEN_TYPE_KEY] = ACCESS_TOKEN_TYPE
 
         val token = generateToken(
-            subject = userAuth.id.toString(),
+            subject = userAuth.getSubject(),
             claims = claims,
             expiration = jwtProperties.expiration
         )
@@ -54,7 +54,7 @@ class UserTokenProvider(
         )
 
         val token = generateToken(
-            subject = userAuth.id.toString(),
+            subject = userAuth.getSubject(),
             claims = claims,
             expiration = jwtProperties.expiration
         )

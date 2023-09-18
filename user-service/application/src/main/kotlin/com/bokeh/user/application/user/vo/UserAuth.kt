@@ -11,6 +11,10 @@ data class UserAuth(
     val role: Role,
 ) {
 
+    fun getSubject(): String {
+        return id.toString()
+    }
+
     fun getClaims(): Map<String, String> {
         return mapOf(
             USERNAME to username,
