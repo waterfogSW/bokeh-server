@@ -22,6 +22,13 @@ class UserTokenProvider(
         private const val USER_ID_KEY = "id"
     }
 
+    fun resolveRefreshToken(refreshToken: String): String {
+        return JWT.require(algorithm)
+            .build()
+            .verify(refreshToken)
+            .getClaim(USER_ID_KEY)
+            .asString()
+    }
 
     fun generateAccessToken(userAuth: UserAuth): UserAuthToken {
         val claims = userAuth.getClaims().toMutableMap()
