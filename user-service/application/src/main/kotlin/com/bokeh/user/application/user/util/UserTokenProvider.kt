@@ -18,7 +18,7 @@ class UserTokenProvider(
 
     fun generateAccessToken(userAuth: UserAuth): UserAccessToken {
         val tokenString: String = generateTokenString(
-            subject = userAuth.id.toString(),
+            subject = userAuth.getSubject(),
             claims = userAuth.getClaims(),
             expiration = jwtProperties.expiration,
         )
@@ -32,7 +32,7 @@ class UserTokenProvider(
 
     fun generateRefreshToken(userAuth: UserAuth): UserRefreshToken {
         val tokenString: String = generateTokenString(
-            subject = userAuth.id.toString(),
+            subject = userAuth.getSubject(),
             expiration = jwtProperties.refreshExpiration,
         )
         return UserRefreshToken(
