@@ -3,6 +3,7 @@ package com.bokeh.user.api.common.advice
 import com.bokeh.user.framework.common.exception.NotFoundException
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
+import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
@@ -11,6 +12,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 class GlobalExceptionHandler {
 
     private val log = LoggerFactory.getLogger(GlobalExceptionHandler::class.java)
+
+    @ExceptionHandler(value = [IllegalArgumentException::class])
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    fun handleBadRequestException(e: Exception): String {
+        log.error("Bad Request Exception: ${e.message}")
+        return "Bad Request Error: ${e.message}"
+    }
 
     @ExceptionHandler(value = [NotFoundException::class])
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
