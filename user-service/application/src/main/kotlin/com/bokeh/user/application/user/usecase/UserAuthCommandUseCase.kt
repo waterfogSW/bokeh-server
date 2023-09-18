@@ -6,7 +6,7 @@ import com.bokeh.user.application.user.port.out.UserAuthPort
 import com.bokeh.user.application.user.util.BCryptPasswordEncoder
 import com.bokeh.user.application.user.util.UserTokenProvider
 import com.bokeh.user.application.user.vo.UserAuth
-import com.bokeh.user.application.user.vo.UserTokens
+import com.bokeh.user.application.user.vo.UserLoginToken
 
 @UseCase
 class UserAuthCommandUseCase(
@@ -15,7 +15,7 @@ class UserAuthCommandUseCase(
     private val userAuthPort: UserAuthPort,
 ) : UserAuthCommand {
 
-    override fun login(email: String, password: String): UserTokens {
+    override fun login(email: String, password: String): UserLoginToken {
         val user = userQueryUseCase.getUserByEmail(email = email)
         user.checkPasswordMatch(rawPassword = password, matchOperation = BCryptPasswordEncoder::matches)
 
@@ -25,7 +25,7 @@ class UserAuthCommandUseCase(
 
         userAuthPort.saveRefreshToken(userId = userAuth.id, refreshToken = refreshToken)
 
-        return UserTokens(
+        return UserLoginToken(
             accessToken = accessToken,
             refreshToken = refreshToken,
         )

@@ -4,7 +4,7 @@ import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
 import com.bokeh.user.application.common.properties.JwtProperties
 import com.bokeh.user.application.user.vo.UserAuth
-import com.bokeh.user.application.user.vo.UserAuthToken
+import com.bokeh.user.application.user.vo.UserToken
 import org.springframework.stereotype.Component
 import java.util.*
 
@@ -30,32 +30,32 @@ class UserTokenProvider(
             .asString()
     }
 
-    fun generateAccessToken(userAuth: UserAuth): UserAuthToken {
+    fun generateAccessToken(userAuth: UserAuth): UserToken {
         val claims: Map<String, String> = userAuth.getClaims()
         val accessTokenClaims: Map<String, String> = claims + (TOKEN_TYPE_KEY to ACCESS_TOKEN_TYPE)
 
-        return createUserAuthToken(userAuth, accessTokenClaims)
+        return createUserToken(userAuth, accessTokenClaims)
     }
 
-    fun generateRefreshToken(userAuth: UserAuth): UserAuthToken {
+    fun generateRefreshToken(userAuth: UserAuth): UserToken {
         val claims: Map<String, String> = mapOf(
             USER_ID_KEY to userAuth.getSubject(),
             TOKEN_TYPE_KEY to REFRESH_TOKEN_TYPE,
         )
 
-        return createUserAuthToken(userAuth, claims)
+        return createUserToken(userAuth, claims)
     }
 
-    private fun createUserAuthToken(
+    private fun createUserToken(
         userAuth: UserAuth,
         claims: Map<String, String>
-    ): UserAuthToken {
+    ): UserToken {
         val token: String = generateToken(
             subject = userAuth.getSubject(),
             claims = claims,
             expiration = jwtProperties.expiration
         )
-        return UserAuthToken(userAuth.id, token, jwtProperties.expiration)
+        return UserToken(userAuth.id, token, jwtProperties.expiration)
     }
 
     private fun generateToken(

@@ -34,11 +34,11 @@ class UserRestController(
     @PostMapping("login")
     @ResponseStatus(HttpStatus.OK)
     fun login(@RequestBody userAuthLoginRequest: UserAuthLoginRequest): UserAuthLoginResponse {
-        val userTokens = userAuthCommandUseCase.login(
+        val userLoginToken = userAuthCommandUseCase.login(
             email = userAuthLoginRequest.email,
             password = userAuthLoginRequest.password,
         )
-        return UserAuthLoginResponse.from(userTokens = userTokens)
+        return UserAuthLoginResponse.from(userLoginToken = userLoginToken)
     }
 
 }
