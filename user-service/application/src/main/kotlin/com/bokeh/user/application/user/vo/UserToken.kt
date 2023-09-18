@@ -2,8 +2,8 @@ package com.bokeh.user.application.user.vo
 
 import java.util.*
 
-data class UserToken(
-    val userId: UUID,
-    val token: String,
-    val expiresIn: Long,
-)
+interface UserToken {
+    val userId: UUID
+    val tokenString: String
+    val expiresIn: Long
+}

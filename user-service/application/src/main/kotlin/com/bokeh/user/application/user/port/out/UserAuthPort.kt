@@ -1,10 +1,9 @@
 package com.bokeh.user.application.user.port.out
 
-import com.bokeh.user.application.user.vo.UserToken
-import java.util.*
+import com.bokeh.user.application.user.vo.UserRefreshToken
 
 interface UserAuthPort {
 
-    fun saveRefreshToken(userId: UUID, refreshToken: UserToken)
+    fun saveRefreshToken(refreshToken: UserRefreshToken)
 
 }

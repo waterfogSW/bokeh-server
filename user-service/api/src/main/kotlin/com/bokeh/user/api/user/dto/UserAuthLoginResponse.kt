@@ -1,11 +1,12 @@
 package com.bokeh.user.api.user.dto
 
-import com.bokeh.user.application.user.vo.UserToken
+import com.bokeh.user.application.user.vo.UserAccessToken
 import com.bokeh.user.application.user.vo.UserLoginToken
+import com.bokeh.user.application.user.vo.UserRefreshToken
 
 data class UserAuthLoginResponse(
-    val accessToken: UserToken,
-    val refreshToken: UserToken,
+    val accessToken: UserAccessToken,
+    val refreshToken: UserRefreshToken,
 ) {
     companion object {
         fun from(userLoginToken: UserLoginToken) = UserAuthLoginResponse(
