@@ -15,6 +15,14 @@ data class UserRefreshTokenHash(
     val expiredAt: Long,
 ) {
 
+    fun toUserRefreshToken(): UserRefreshToken {
+        return UserRefreshToken(
+            userId = this.id,
+            tokenString = this.token,
+            expiresIn = this.expiredAt * MILLIS_IN_SECOND
+        )
+    }
+
     companion object {
         private const val MILLIS_IN_SECOND = 1000L
         fun from(userRefreshToken: UserRefreshToken): UserRefreshTokenHash {

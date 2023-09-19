@@ -9,4 +9,6 @@ interface UserQuery {
     fun getUserByEmail(email: String): User
 
     fun getUserInfoById(id: UUID): UserInfo
+
+    fun getUserById(id: UUID): User?
 }

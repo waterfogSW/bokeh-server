@@ -1,6 +1,6 @@
 package com.bokeh.user.application.user.usecase
 
-import com.bokeh.user.application.user.port.out.UserTokenPort
+import com.bokeh.user.application.user.port.out.UserRefreshTokenPort
 import com.bokeh.user.application.user.util.BCryptPasswordEncoder
 import com.bokeh.user.application.user.util.UserTokenProvider
 import com.bokeh.user.application.user.vo.UserAccessToken
@@ -24,11 +24,11 @@ class UserAuthCommandUseCaseTest : DescribeSpec({
 
     val userQueryUseCase = mockk<UserQueryUseCase>()
     val userTokenProvider = mockk<UserTokenProvider>()
-    val userTokenPort = mockk<UserTokenPort>()
+    val userRefreshTokenPort = mockk<UserRefreshTokenPort>()
     val userAuthCommandUseCase = UserAuthCommandUseCase(
         userQueryUseCase = userQueryUseCase,
         userTokenProvider = userTokenProvider,
-        userTokenPort = userTokenPort,
+        userRefreshTokenPort = userRefreshTokenPort,
     )
 
     describe("로그인") {
@@ -54,7 +54,7 @@ class UserAuthCommandUseCaseTest : DescribeSpec({
 
                 every { userTokenProvider.generateAccessToken(any()) } returns userAccessToken
                 every { userTokenProvider.generateRefreshToken(any()) } returns userRefreshToken
-                every { userTokenPort.saveRefreshToken(any()) } just Runs
+                every { userRefreshTokenPort.saveRefreshToken(any()) } just Runs
 
                 val userLoginToken: UserLoginToken = userAuthCommandUseCase.login(email, inputPassword)
                 userLoginToken.shouldBe(UserLoginToken(userAccessToken, userRefreshToken))
