@@ -1,9 +1,8 @@
-package com.bokeh.user.api.common.advice
+package com.bokeh.user.api.common.exception
 
 import com.bokeh.user.framework.common.exception.NotFoundException
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
-import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
