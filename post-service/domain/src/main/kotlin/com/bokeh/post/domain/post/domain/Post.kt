@@ -18,20 +18,4 @@ data class Post(
         require(title.length in 1..100) { "title length must be between 1 and 100" }
     }
 
-    companion object {
-        fun createWithGeneratedTagsByContent(
-            title: String,
-            content: String,
-            writerId: UUID,
-            tagGenerator: (String) -> Tags
-        ): Post {
-            return Post(
-                title = title,
-                content = content,
-                writerId = writerId,
-                tags = tagGenerator(content)
-            )
-        }
-    }
-
 }
