@@ -13,6 +13,11 @@ data class Post(
     val updatedAt: LocalDateTime = LocalDateTime.now(),
 ) {
 
+    init {
+        require(title.isNotBlank()) { "title must not be blank" }
+        require(title.length in 1..100) { "title length must be between 1 and 100" }
+    }
+
     companion object {
         fun createWithGeneratedTagsByContent(
             title: String,
