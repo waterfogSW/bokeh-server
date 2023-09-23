@@ -7,7 +7,7 @@ COPY gradlew gradlew.bat ./
 
 COPY domain ./domain
 COPY application ./application
-COPY infrastructure ./infrastructure
+COPY infra-kafka ./infra-kafka
 COPY api ./api
 RUN gradle clean :api:bootJar --no-daemon
 
