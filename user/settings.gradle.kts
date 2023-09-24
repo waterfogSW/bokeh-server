@@ -1,4 +1,4 @@
-rootProject.name = "user-service"
+rootProject.name = "user"
 include("domain")
 include("application")
 include("infrastructure")

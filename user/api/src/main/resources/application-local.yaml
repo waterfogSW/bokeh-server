@@ -1,7 +1,7 @@
 spring:
   docker:
     compose:
-      file: ./user-service/api/docker-compose.yml
+      file: ./user/api/docker-compose.yml
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://db:3306/bokeh-user?useSSL=false&serverTimezone=UTC

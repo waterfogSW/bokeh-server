@@ -1,4 +1,4 @@
-rootProject.name = "post-service"
+rootProject.name = "post"
 include("domain")
 include("application")
 include("infra-kafka")

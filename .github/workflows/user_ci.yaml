@@ -4,8 +4,8 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '.github/workflows/user_service_ci.yaml'
-      - 'user-service/**'
+      - '.github/workflows/user_ci.yaml'
+      - 'user/**'
 
 jobs:
   run_tests:
