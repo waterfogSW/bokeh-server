@@ -1,5 +1,5 @@
 rootProject.name = "user"
-include("domain")
-include("application")
-include("infrastructure")
-include("api")
+include("user-domain")
+include("user-application")
+include("user-infra-jpa")
+include("user-bootstrap-api")

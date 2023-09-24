@@ -7,8 +7,8 @@ jar.enabled = true
 bootJar.enabled = false
 
 dependencies {
-    implementation(project(":domain"))
-    implementation(project(":application"))
+    implementation(project(":user-domain"))
+    implementation(project(":user-application"))
 
     // db
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")

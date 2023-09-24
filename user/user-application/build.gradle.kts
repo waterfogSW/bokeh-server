@@ -7,7 +7,7 @@ jar.enabled = true
 bootJar.enabled = false
 
 dependencies {
-    implementation(project(":domain"))
+    implementation(project(":user-domain"))
 
     implementation("org.springframework.boot:spring-boot")
     implementation("org.mindrot:jbcrypt:0.4") // for password hashing

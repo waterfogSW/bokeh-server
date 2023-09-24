@@ -1,9 +1,9 @@
 apply(plugin = "kotlin-kapt")
 
 dependencies {
-    implementation(project(":domain"))
-    implementation(project(":application"))
-    implementation(project(":infrastructure"))
+    implementation(project(":user-domain"))
+    implementation(project(":user-application"))
+    implementation(project(":user-infra-jpa"))
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
