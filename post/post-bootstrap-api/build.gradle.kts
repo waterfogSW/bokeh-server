@@ -1,9 +1,9 @@
 apply(plugin = "kotlin-kapt")
 
 dependencies {
-    implementation(project(":domain"))
-    implementation(project(":application"))
-    implementation(project(":infra-kafka"))
+    implementation(project(":post-domain"))
+    implementation(project(":post-application"))
+    implementation(project(":post-infra-kafka"))
 
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-validation")

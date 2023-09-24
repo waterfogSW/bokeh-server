@@ -7,7 +7,8 @@ jar.enabled = true
 bootJar.enabled = false
 
 dependencies {
-    implementation(project(":domain"))
+    implementation(project(":post-domain"))
+    implementation(project(":post-application"))
 
-    implementation("org.springframework.boot:spring-boot")
+    implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 }

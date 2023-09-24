@@ -1,5 +1,5 @@
 rootProject.name = "post"
-include("domain")
-include("application")
-include("infra-kafka")
-include("api")
+include("post-domain")
+include("post-application")
+include("post-infra-kafka")
+include("post-bootstrap-api")
