@@ -1,11 +1,11 @@
-name: Post Service CI
+name: post-api CI pipeline
 
 on:
   push:
     branches: [ main ]
     paths:
-      - '.github/workflows/post_service_ci.yaml'
-      - 'post-service/**'
+      - '.github/workflows/post-api-ci.yaml'
+      - 'post/**'
 
 jobs:
   run_tests:
@@ -32,12 +32,12 @@ jobs:
 
       - name: Grant execute permission for gradlew
         run: |
-          cd post-service
+          cd post
           chmod +x gradlew
 
       - name: Run Tests with Gradle
         run: |
-          cd post-service
+          cd post
           ./gradlew test --continue --build-cache
 
   build_and_push:
@@ -68,6 +68,6 @@ jobs:
 
       - name: Build and Push Post-Service
         run: |
-          cd post-service
+          cd post
           docker build -t ${{ steps.get_post_ecr_url.outputs.url }} .
           docker push ${{ steps.get_post_ecr_url.outputs.url }}
