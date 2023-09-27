@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '.github/workflows/user-api-ci.yaml'
+      - '.github/workflows/user-api-rest-ci.yaml'
       - 'user/**'
 
 jobs:
@@ -56,19 +56,19 @@ jobs:
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
       - name: Get ECR User URL
-        id: get_user_ecr_url
+        id: get-user_api_rest-ecr_url
         run: |
-          url=$(aws ssm get-parameter --name bokeh-user_service-ecr_url --query 'Parameter.Value' --output text)
+          url=$(aws ssm get-parameter --name bokeh-user_api_rest-ecr_url --query 'Parameter.Value' --output text)
           echo "::set-output name=url::$url"
 
-      - name: Login to Amazon ECR(User Service)
+      - name: Login to Amazon ECR(User API - REST)
         id: login-ecr
         run: |
           aws ecr-public get-login-password --region us-east-1 | 
-          docker login --username AWS --password-stdin ${{ steps.get_user_ecr_url.outputs.url }}
+          docker login --username AWS --password-stdin ${{ steps.get-user_api_rest-ecr_url.outputs.url }}
 
       - name: Build and Push User
         run: |
           cd user
-          docker build -t ${{ steps.get_user_ecr_url.outputs.url }} .
-          docker push ${{ steps.get_user_ecr_url.outputs.url }}
+          docker build -t ${{ steps.get-user_api_rest-ecr_url.outputs.url }} .
+          docker push ${{ steps.get-user_api_rest-ecr_url.outputs.url }}
