@@ -7,6 +7,7 @@ jar.enabled = true
 bootJar.enabled = false
 
 dependencies {
+    implementation(project(":user-common"))
     implementation(project(":user-domain"))
 
     implementation("org.springframework.boot:spring-boot")

@@ -4,7 +4,7 @@ import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
 import com.bokeh.user.application.common.properties.JwtProperties
 import com.bokeh.user.application.user.vo.UserAccessToken
-import com.bokeh.user.application.user.vo.UserAuth
+import com.bokeh.user.domain.user.domain.UserAuth
 import com.bokeh.user.application.user.vo.UserRefreshToken
 import org.springframework.stereotype.Component
 import java.util.*
