@@ -70,5 +70,5 @@ jobs:
       - name: Build and Push User
         run: |
           cd user
-          docker build -t ${{ steps.get-user_api_rest-ecr_url.outputs.url }} .
+          docker build -t ${{ steps.get-user_api_rest-ecr_url.outputs.url }} -f user-api-rest.dockerfile .
           docker push ${{ steps.get-user_api_rest-ecr_url.outputs.url }}
