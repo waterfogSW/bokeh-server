@@ -1,4 +1,5 @@
 version: '3.8'
+name: post-api-rest
 services:
   mongo:
     image: mongo

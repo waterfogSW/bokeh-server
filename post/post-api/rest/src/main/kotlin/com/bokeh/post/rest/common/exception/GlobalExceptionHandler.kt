@@ -1,4 +1,4 @@
-package com.bokeh.post.api.common.exception
+package com.bokeh.post.rest.common.exception
 
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus

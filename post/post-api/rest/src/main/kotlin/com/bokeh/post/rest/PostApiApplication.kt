@@ -1,4 +1,4 @@
-package com.bokeh.post
+package com.bokeh.post.rest
 
 
 import org.springframework.boot.autoconfigure.SpringBootApplication

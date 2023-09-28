@@ -1,0 +1,4 @@
+spring:
+  docker:
+    compose:
+      file: ./post/post-api/rest/docker-compose.yaml
