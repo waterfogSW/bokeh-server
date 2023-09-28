@@ -1,10 +1,30 @@
+server:
+  port: 8080
+  shutdown: graceful
 spring:
   profiles:
     active: local
-
-jwt:
-  secret: Bj5eT2ZMn3CfXk9Ui6GvV4YqQ2Dc9AtBm7FeR8HtK9OvZ6Px
-  # millisecond - 15 minutes
-  expiration: 900000
-  # millisecond - 7 day
-  refresh-expiration: 604800000
+    include:
+      - persistence
+      - redis
+      - application
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  transaction:
+    default-timeout: 4
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  docker:
+    compose:
+      file: ./user/user-api/rest/docker-compose.yml
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  docker:
+    compose:
+      enabled: false
