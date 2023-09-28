@@ -1,10 +1,10 @@
-name: post-api CI pipeline
+name: Post API(REST) CI pipeline
 
 on:
   push:
     branches: [ main ]
     paths:
-      - '.github/workflows/post-api-ci.yaml'
+      - '.github/workflows/post-api-rest-ci.yaml'
       - 'post/**'
 
 jobs:
@@ -54,20 +54,20 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
-      - name: Get ECR Post-Service URL
-        id: get_post_ecr_url
+      - name: Get ECR URL
+        id: get-post_api_rest-ecr_url
         run: |
-          url=$(aws ssm get-parameter --name bokeh-post_service-ecr_url --query 'Parameter.Value' --output text)
+          url=$(aws ssm get-parameter --name bokeh-post_api_rest-ecr_url --query 'Parameter.Value' --output text)
           echo "::set-output name=url::$url"
 
-      - name: Login to Amazon ECR(Post Service)
+      - name: Login to Amazon ECR
         id: login-ecr
         run: |
           aws ecr-public get-login-password --region us-east-1 | 
-          docker login --username AWS --password-stdin ${{ steps.get_post_ecr_url.outputs.url }}
+          docker login --username AWS --password-stdin ${{ steps.get-post_api_rest-ecr_url.outputs.url }}
 
-      - name: Build and Push Post-Service
+      - name: Build and Push
         run: |
           cd post
-          docker build -t ${{ steps.get_post_ecr_url.outputs.url }} .
-          docker push ${{ steps.get_post_ecr_url.outputs.url }}
+          docker build -t ${{ steps.get-post_api_rest-ecr_url.outputs.url }} .
+          docker push ${{ steps.get-post_api_rest-ecr_url.outputs.url }}
