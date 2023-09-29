@@ -1,12 +1,11 @@
-package com.bokeh.post.application.post.usecase
+package com.bokeh.post.application.post.port.`in`.command
 
-import com.bokeh.post.application.common.annotation.UseCase
-import com.bokeh.post.application.post.port.`in`.PostCommand
 import com.bokeh.post.application.post.port.out.PostPort
 import com.bokeh.post.application.post.vo.CreatePostParam
 import com.bokeh.post.domain.post.domain.Post
+import org.springframework.stereotype.Service
 
-@UseCase
+@Service
 class PostCommandUseCase(
     private val postPort: PostPort,
 ) : PostCommand {
