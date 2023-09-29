@@ -3,6 +3,7 @@ package com.bokeh.user.api.user.controller
 import com.bokeh.user.api.user.dto.UserLoginRequest
 import com.bokeh.user.api.user.dto.UserCreateRequest
 import com.bokeh.user.api.user.dto.UserLoginResponse
+import com.bokeh.user.api.user.dto.UserLogoutRequest
 import com.bokeh.user.application.user.port.`in`.command.UserCreateCommand
 import com.bokeh.user.application.user.port.`in`.command.UserCreateCommandUseCase
 import com.bokeh.user.application.user.port.`in`.command.UserLoginCommand
@@ -44,6 +45,12 @@ class UserRestController(
         return userLoginCommand
             .login(command = command)
             .let { UserLoginResponse.from(result = it) }
+    }
+
+    @PostMapping("logout")
+    @ResponseStatus(HttpStatus.OK)
+    fun logout(@RequestBody userLogoutRequest: UserLogoutRequest) {
+        //TODO: Implement logout use case
     }
 
 }

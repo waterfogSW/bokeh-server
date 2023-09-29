@@ -10,3 +10,7 @@ data class UserCreateRequest(
     val password: String,
     val email: String,
 )
+
+data class UserLogoutRequest(
+    val email: String,
+)
