@@ -6,19 +6,13 @@ import com.bokeh.post.domain.post.domain.Post
 import org.springframework.stereotype.Service
 
 @Service
-class PostCommandUseCase(
+class PostCommand(
     private val postPort: PostPort,
-) : PostCommand {
+) : PostCreateCommandUseCase {
 
-    override fun createPost(param: CreatePostParam) {
-        val newPost: Post = Post(
-            title = param.title,
-            content = param.content,
-            writerId = param.writerId,
-            tags = param.tags,
-        )
-
-        postPort.savePost(newPost)
+    override fun create(command: PostCreateCommandUseCase.Command): Post {
+        TODO("Not yet implemented")
     }
+
 
 }
