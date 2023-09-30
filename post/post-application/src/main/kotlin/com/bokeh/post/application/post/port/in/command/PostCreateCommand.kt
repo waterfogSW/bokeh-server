@@ -5,7 +5,7 @@ import com.bokeh.post.domain.post.domain.Post
 import org.springframework.stereotype.Service
 
 @Service
-class PostCommand(
+class PostCreateCommand(
     private val postRepositoryPort: PostRepositoryPort,
 ) : PostCreateCommandUseCase {
 
