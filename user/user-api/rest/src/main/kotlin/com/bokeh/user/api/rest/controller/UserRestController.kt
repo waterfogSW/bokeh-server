@@ -1,9 +1,9 @@
-package com.bokeh.user.api.user.controller
+package com.bokeh.user.api.rest.controller
 
-import com.bokeh.user.api.user.dto.UserLoginRequest
-import com.bokeh.user.api.user.dto.UserCreateRequest
-import com.bokeh.user.api.user.dto.UserLoginResponse
-import com.bokeh.user.api.user.dto.UserLogoutRequest
+import com.bokeh.user.api.rest.dto.UserLoginRequest
+import com.bokeh.user.api.rest.dto.UserCreateRequest
+import com.bokeh.user.api.rest.dto.UserLoginResponse
+import com.bokeh.user.api.rest.dto.UserLogoutRequest
 import com.bokeh.user.application.user.port.`in`.command.UserCreateCommand
 import com.bokeh.user.application.user.port.`in`.command.UserCreateCommandUseCase
 import com.bokeh.user.application.user.port.`in`.command.UserLoginCommand

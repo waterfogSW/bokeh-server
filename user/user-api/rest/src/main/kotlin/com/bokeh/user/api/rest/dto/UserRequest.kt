@@ -1,4 +1,4 @@
-package com.bokeh.user.api.user.dto
+package com.bokeh.user.api.rest.dto
 
 data class UserLoginRequest(
     val email: String,

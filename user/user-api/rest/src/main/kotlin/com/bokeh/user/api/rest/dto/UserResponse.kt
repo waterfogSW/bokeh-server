@@ -1,4 +1,4 @@
-package com.bokeh.user.api.user.dto
+package com.bokeh.user.api.rest.dto
 
 import com.bokeh.user.application.user.port.`in`.command.UserLoginCommandUseCase
 import com.bokeh.user.application.user.vo.UserAccessToken

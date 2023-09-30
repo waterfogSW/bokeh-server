@@ -1,6 +1,5 @@
-package com.bokeh.user.api.common.exception
+package com.bokeh.post.api.rest.common.exception
 
-import com.bokeh.user.common.exception.NotFoundException
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ExceptionHandler
@@ -19,12 +18,6 @@ class GlobalExceptionHandler {
         return "Bad Request Error: ${e.message}"
     }
 
-    @ExceptionHandler(value = [NotFoundException::class])
-    @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    fun handleNotFoundException(e: NotFoundException): String {
-        log.error("Not Found Exception: ${e.message}")
-        return "Not Found Error: ${e.message}"
-    }
 
     @ExceptionHandler(value = [RuntimeException::class])
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)

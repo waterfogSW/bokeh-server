@@ -1,4 +1,4 @@
-package com.bokeh.post.rest
+package com.bokeh.post
 
 
 import com.bokeh.post.application.common.config.AppConfig
