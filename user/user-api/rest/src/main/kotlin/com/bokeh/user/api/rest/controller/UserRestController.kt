@@ -4,9 +4,7 @@ import com.bokeh.user.api.rest.dto.UserLoginRequest
 import com.bokeh.user.api.rest.dto.UserCreateRequest
 import com.bokeh.user.api.rest.dto.UserLoginResponse
 import com.bokeh.user.api.rest.dto.UserLogoutRequest
-import com.bokeh.user.application.user.port.`in`.command.UserCreateCommand
 import com.bokeh.user.application.user.port.`in`.command.UserCreateCommandUseCase
-import com.bokeh.user.application.user.port.`in`.command.UserLoginCommand
 import com.bokeh.user.application.user.port.`in`.command.UserLoginCommandUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
@@ -16,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class UserRestController(
-    private val userCreateCommand: UserCreateCommand,
-    private val userLoginCommand: UserLoginCommand,
+    private val userCreateCommandUseCase: UserCreateCommandUseCase,
+    private val userLoginCommandUseCase: UserLoginCommandUseCase,
 ) {
 
     @PostMapping("")
@@ -30,7 +28,7 @@ class UserRestController(
                 email = userCreateRequest.email,
             )
 
-        userCreateCommand.create(command = command)
+        userCreateCommandUseCase.create(command = command)
     }
 
     @PostMapping("login")
@@ -42,7 +40,7 @@ class UserRestController(
                 password = userLoginRequest.password,
             )
 
-        return userLoginCommand
+        return userLoginCommandUseCase
             .login(command = command)
             .let { UserLoginResponse.from(result = it) }
     }
