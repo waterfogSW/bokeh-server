@@ -8,4 +8,12 @@ data class Tags(
             "tag size must be between 1 and 10"
         }
     }
+
+    companion object {
+        fun fromStrings(strings: List<String>): Tags {
+            return Tags(
+                value = strings.map { Tag(it) }
+            )
+        }
+    }
 }
