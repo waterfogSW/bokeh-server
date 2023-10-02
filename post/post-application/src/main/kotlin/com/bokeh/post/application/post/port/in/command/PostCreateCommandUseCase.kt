@@ -5,7 +5,7 @@ import java.util.*
 
 interface PostCreateCommandUseCase {
 
-    fun create(command: Command): Post
+    fun create(command: Command)
     data class Command(
         val title: String,
         val content: String,
