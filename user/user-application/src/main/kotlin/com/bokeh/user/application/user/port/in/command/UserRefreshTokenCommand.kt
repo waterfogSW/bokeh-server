@@ -4,9 +4,9 @@ import com.bokeh.user.application.user.port.`in`.query.GetUserQueryUseCase
 import com.bokeh.user.application.user.port.out.UserRefreshTokenRepositoryPort
 import com.bokeh.user.application.user.util.UserTokenProvider
 import com.bokeh.user.application.user.vo.UserAccessToken
-import com.bokeh.user.domain.user.domain.UserAuth
 import com.bokeh.user.application.user.vo.UserRefreshToken
 import com.bokeh.user.domain.user.domain.User
+import com.bokeh.user.domain.user.domain.UserAuth
 import org.springframework.stereotype.Service
 
 @Service
