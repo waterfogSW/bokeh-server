@@ -8,6 +8,9 @@ include("post-application")
 include(":post-api-rest")
 project(":post-api-rest").projectDir = file("post-api/rest")
 
+include(":post-api-websocket")
+project(":post-api-websocket").projectDir = file("post-api/websocket")
+
 // adapter
 include(":post-adapter-mongo")
 project(":post-adapter-mongo").projectDir = file("post-adapter/mongo")
