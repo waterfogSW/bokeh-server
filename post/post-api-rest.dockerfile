@@ -8,8 +8,7 @@ COPY gradlew gradlew.bat ./
 COPY post-common ./post-common
 COPY post-domain ./post-domain
 COPY post-application ./post-application
-COPY post-adapter/kafka ./post-adapter/persistence
-COPY post-adapter/mongo ./post-adapter/redis
+COPY post-adapter/kafka ./post-adapter/kafka
 COPY post-api/rest ./post-api/rest
 RUN gradle clean :post-api-rest:bootJar --no-daemon
 
