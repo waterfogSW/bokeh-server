@@ -1,4 +1,4 @@
-package com.bokeh.user
+package com.bokeh.user.api.rest
 
 import com.bokeh.user.adapter.persistence.common.config.PersistenceConfig
 import com.bokeh.user.adapter.redis.common.config.RedisConfig

@@ -9,8 +9,8 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 
 
 @Configuration
-@EnableRedisRepositories
 @ComponentScan(basePackages = ["com.bokeh.user.adapter.redis"])
+@EnableRedisRepositories(basePackages = ["com.bokeh.user.adapter.redis.repository"])
 class RedisConfig {
     @Bean
     fun redisConnectionFactory(): LettuceConnectionFactory {
