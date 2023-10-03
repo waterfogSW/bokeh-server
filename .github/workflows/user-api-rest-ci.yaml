@@ -1,4 +1,4 @@
-name: User Service CI
+name: User API(REST) CI pipeline
 
 on:
   push:
