@@ -2,7 +2,7 @@ dependencies {
     implementation(project(":post-common"))
     implementation(project(":post-domain"))
     implementation(project(":post-application"))
-    implementation(project(":post-adapter-mongo"))
+    implementation(project(":post-adapter-kafka"))
 
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-actuator")

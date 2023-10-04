@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  shutdown: graceful
+spring:
+  profiles:
+    active: local
+    include:
+      - kafka
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  docker:
+    compose:
+      file: ./post/post-api/websocket/docker-compose.yaml
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
