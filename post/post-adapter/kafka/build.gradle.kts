@@ -11,5 +11,6 @@ dependencies {
     implementation(project(":post-domain"))
     implementation(project(":post-application"))
 
+    implementation("org.springframework.boot:spring-boot")
     api("org.springframework.kafka:spring-kafka:3.0.4")
 }

@@ -1,0 +1,11 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+kafka:
+  bootstrap-servers: localhost:9092
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
