@@ -19,7 +19,7 @@ class PostCreateCommand(
             tags = tags,
         )
 
-        postEventPort.create(post = post)
+        postEventPort.sendCreateEvent(post = post)
     }
 
 }

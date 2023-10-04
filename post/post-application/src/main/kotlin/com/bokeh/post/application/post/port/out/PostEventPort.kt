@@ -4,7 +4,7 @@ import com.bokeh.post.domain.post.domain.Post
 
 interface PostEventPort {
 
-    fun create(post: Post)
+    fun sendCreateEvent(post: Post)
 
 
 }
