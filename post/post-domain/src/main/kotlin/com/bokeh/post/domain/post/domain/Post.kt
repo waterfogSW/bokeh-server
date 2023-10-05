@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 import java.util.*
 
 data class Post(
-    val id: UUID? = null,
+    val id: UUID = UUID.randomUUID(),
     val title: String,
     val content: String,
     val writerId: UUID,

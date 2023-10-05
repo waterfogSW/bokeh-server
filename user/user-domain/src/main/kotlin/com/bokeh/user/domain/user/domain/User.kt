@@ -4,7 +4,7 @@ import com.bokeh.user.domain.user.constant.ErrorMessage
 import java.util.*
 
 data class User(
-    val id: UUID? = null,
+    val id: UUID = UUID.randomUUID(),
     val username: String,
     val password: String,
     val email: String,

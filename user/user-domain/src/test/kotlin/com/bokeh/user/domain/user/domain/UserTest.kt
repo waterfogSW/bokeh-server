@@ -11,7 +11,6 @@ class UserTest : DescribeSpec({
             it("생성된다") {
                 shouldNotThrowAny {
                     User(
-                        id = UUID.randomUUID(),
                         username = "user01",
                         password = "password",
                         email = "user01@example.com"
@@ -23,7 +22,7 @@ class UserTest : DescribeSpec({
         context("username의 길이가 3보다 작을 때") {
             it("IllegalArgumentException이 발생한다") {
                 shouldThrow<IllegalArgumentException> {
-                    User(id = UUID.randomUUID(), username = "us", password = "password", email = "us@example.com")
+                    User(username = "us", password = "password", email = "us@example.com")
                 }
             }
         }
@@ -32,7 +31,6 @@ class UserTest : DescribeSpec({
             it("IllegalArgumentException이 발생한다") {
                 shouldThrow<IllegalArgumentException> {
                     User(
-                        id = UUID.randomUUID(),
                         username = "longusername",
                         password = "password",
                         email = "longusername@example.com"
@@ -44,7 +42,7 @@ class UserTest : DescribeSpec({
         context("email 형식이 잘못되었을 때") {
             it("IllegalArgumentException이 발생한다") {
                 shouldThrow<IllegalArgumentException> {
-                    User(id = UUID.randomUUID(), username = "user01", password = "password", email = "wrongemail")
+                    User(username = "user01", password = "password", email = "wrongemail")
                 }
             }
         }
@@ -58,7 +56,6 @@ class UserTest : DescribeSpec({
 
             it("에러가 발생하지 않는다") {
                 val user = User(
-                    id = UUID.randomUUID(),
                     username = "user01",
                     password = savedPassword,
                     email = "user01@exmaple.com"
@@ -77,7 +74,6 @@ class UserTest : DescribeSpec({
             it("에러가 발생한다") {
 
                 val user = User(
-                    id = UUID.randomUUID(),
                     username = "user01",
                     password = savedPassword,
                     email = "user01@example.com"

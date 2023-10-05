@@ -28,9 +28,8 @@ data class UserAuth(
         const val ROLE = "role"
 
         fun from(user: User): UserAuth {
-            val id = user.id ?: throw IllegalArgumentException("User id must not be null")
             return UserAuth(
-                id = id,
+                id = user.id,
                 username = user.username,
                 email = user.email,
                 role = user.role,
