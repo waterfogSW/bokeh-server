@@ -1,5 +1,6 @@
 package com.bokeh.post.api.websocket
 
+import com.bokeh.post.adapter.kafka.common.config.KafkaConfig
 import com.bokeh.post.application.common.config.AppConfig
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan
@@ -11,6 +12,7 @@ import java.util.*
 @Import(
     value = [
         AppConfig::class,
+        KafkaConfig::class,
     ]
 )
 @ConfigurationPropertiesScan
