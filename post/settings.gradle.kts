@@ -17,3 +17,6 @@ project(":post-adapter-mongo").projectDir = file("post-adapter/mongo")
 
 include(":post-adapter-kafka")
 project(":post-adapter-kafka").projectDir = file("post-adapter/kafka")
+
+include(":post-adapter-websocket")
+project(":post-adapter-websocket").projectDir = file("post-adapter/websocket")

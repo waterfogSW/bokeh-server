@@ -6,6 +6,7 @@ spring:
     active: local
     include:
       - kafka
+      - websocket
 ---
 spring:
   config:
