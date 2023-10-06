@@ -16,15 +16,18 @@ class KafkaProducerConfig(
 ) {
 
     @Bean
-    fun ReactiveKafkaProducerTemplate(): ReactiveKafkaProducerTemplate<String, Post> {
-        val producerProps: Map<String, Any> = mapOf<String, Any>(
-            ProducerConfig.BOOTSTRAP_SERVERS_CONFIG to kafkaProperties.bootstrapServers,
-            ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG to StringSerializer::class.java,
-            ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG to JsonSerializer::class.java,
-            ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG to true
-        )
-        val senderOptions: SenderOptions<String, Post> = SenderOptions.create(producerProps)
+    fun postProducerTemplate(): ReactiveKafkaProducerTemplate<String, Post> {
+        val senderOptions: SenderOptions<String, Post> = SenderOptions.create(producerProps())
         return ReactiveKafkaProducerTemplate(senderOptions)
+    }
+
+    private fun producerProps(): Map<String, Any> {
+        val props: MutableMap<String, Any> = HashMap()
+        props[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = kafkaProperties.bootstrapServers
+        props[ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java
+        props[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = JsonSerializer::class.java
+        props[ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG] = true
+        return props
     }
 
 }

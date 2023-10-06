@@ -1,6 +1,6 @@
 package com.bokeh.post.adapter.kafka.adapter
 
-import com.bokeh.post.adapter.kafka.common.config.KafkaTopic
+import com.bokeh.post.adapter.kafka.common.config.KafkaConstants
 import com.bokeh.post.application.post.port.out.PostEventPort
 import com.bokeh.post.domain.post.domain.Post
 import org.slf4j.LoggerFactory
@@ -17,7 +17,7 @@ class PostKafkaAdapter(
     override fun sendCreateEvent(post: Post) {
         //TODO: add logging, transaction outbox pattern
         reactiveKafkaProducerTemplate
-            .send(KafkaTopic.POST_CREATE, post)
+            .send(KafkaConstants.POST_CREATE, post)
             .doOnSuccess { log.info("Send Post Create Event - Post ID : ${post.id}") }
             .subscribe()
     }
