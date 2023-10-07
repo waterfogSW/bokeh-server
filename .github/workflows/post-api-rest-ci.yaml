@@ -5,7 +5,10 @@ on:
     branches: [ main ]
     paths:
       - '.github/workflows/post-api-rest-ci.yaml'
-      - 'post/**'
+      - 'post/post-api/rest/**'
+      - 'post/post-application/**'
+      - 'post/post-kafka/**'
+      - 'post/post-domain/**'
 
 jobs:
   run_tests:
