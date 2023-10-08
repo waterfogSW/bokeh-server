@@ -1,4 +1,4 @@
-package com.bokeh.post.adapter.kafka.common.config
+package com.bokeh.post.api.websocket.common.config
 
 import com.bokeh.post.adapter.kafka.common.constant.ConsumerGroup
 import com.bokeh.post.adapter.kafka.common.properties.KafkaProperties
