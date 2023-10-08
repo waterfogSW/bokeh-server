@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.kafka.core.reactive.ReactiveKafkaConsumerTemplate
 import org.springframework.kafka.support.serializer.JsonDeserializer
 import reactor.kafka.receiver.ReceiverOptions
+import java.util.*
+import kotlin.collections.HashMap
 
 @Configuration
 class KafkaConsumerConfig(
@@ -16,8 +18,8 @@ class KafkaConsumerConfig(
 ) {
 
     @Bean
-    fun postConsumerTemplate(): ReactiveKafkaConsumerTemplate<String, Any> {
-        val receiverOptions: ReceiverOptions<String, Any> = ReceiverOptions.create(consumerProps())
+    fun postConsumerTemplate(): ReactiveKafkaConsumerTemplate<UUID, Any> {
+        val receiverOptions: ReceiverOptions<UUID, Any> = ReceiverOptions.create(consumerProps())
         return ReactiveKafkaConsumerTemplate(receiverOptions)
     }
 

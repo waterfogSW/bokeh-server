@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.kafka.core.reactive.ReactiveKafkaProducerTemplate
 import org.springframework.kafka.support.serializer.JsonSerializer
 import reactor.kafka.sender.SenderOptions
+import java.util.UUID
 
 @Configuration
 class KafkaProducerConfig(
@@ -17,8 +18,8 @@ class KafkaProducerConfig(
 ) {
 
     @Bean
-    fun postProducerTemplate(): ReactiveKafkaProducerTemplate<String, Any> {
-        val senderOptions: SenderOptions<String, Any> = SenderOptions.create(producerProps())
+    fun postProducerTemplate(): ReactiveKafkaProducerTemplate<UUID, Any> {
+        val senderOptions: SenderOptions<UUID, Any> = SenderOptions.create(producerProps())
         return ReactiveKafkaProducerTemplate(senderOptions)
     }
 

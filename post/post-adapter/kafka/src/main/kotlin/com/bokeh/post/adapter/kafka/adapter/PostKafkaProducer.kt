@@ -9,7 +9,7 @@ import java.util.*
 
 @Component
 class PostKafkaProducer(
-    private val reactiveKafkaProducerTemplate: ReactiveKafkaProducerTemplate<String, Any>,
+    private val reactiveKafkaProducerTemplate: ReactiveKafkaProducerTemplate<UUID, Any>,
 ) {
 
     fun send(
@@ -17,6 +17,6 @@ class PostKafkaProducer(
         key: UUID,
         value: Any
     ): Mono<SenderResult<Void>> {
-        return reactiveKafkaProducerTemplate.send(topic.name, key.toString(), value)
+        return reactiveKafkaProducerTemplate.send(topic.name, key, value)
     }
 }
