@@ -5,7 +5,7 @@ import org.springframework.messaging.handler.annotation.SendTo
 import org.springframework.stereotype.Controller
 
 @Controller
-class PostEventController {
+class PostWebsocketController {
     @MessageMapping("/posts")
     @SendTo("topic/posts")
     fun postEvent() {
