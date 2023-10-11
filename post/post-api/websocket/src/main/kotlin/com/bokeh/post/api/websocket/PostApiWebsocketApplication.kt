@@ -17,7 +17,7 @@ import java.util.*
         WebSocketConfig::class,
     ]
 )
-@ConfigurationPropertiesScan
+@ConfigurationPropertiesScan(basePackages = ["com.bokeh.post.api.websocket.common.properties"])
 class PostApiWebsocketApplication
 
 fun main(args: Array<String>) {

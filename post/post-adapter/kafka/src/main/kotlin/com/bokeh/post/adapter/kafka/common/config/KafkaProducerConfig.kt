@@ -1,9 +1,7 @@
 package com.bokeh.post.adapter.kafka.common.config
 
-import com.bokeh.post.adapter.kafka.common.properties.KafkaProperties
-import com.bokeh.post.domain.post.domain.Post
+import com.bokeh.post.adapter.kafka.common.properties.KafkaProducerProperties
 import org.apache.kafka.clients.producer.ProducerConfig
-import org.apache.kafka.common.serialization.StringSerializer
 import org.apache.kafka.common.serialization.UUIDSerializer
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -14,7 +12,7 @@ import java.util.UUID
 
 @Configuration
 class KafkaProducerConfig(
-    private val kafkaProperties: KafkaProperties
+    private val kafkaProducerProperties: KafkaProducerProperties
 ) {
 
     @Bean
@@ -25,7 +23,7 @@ class KafkaProducerConfig(
 
     private fun producerProps(): Map<String, Any> {
         val props: MutableMap<String, Any> = HashMap()
-        props[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = kafkaProperties.bootstrapServers
+        props[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = kafkaProducerProperties.bootstrapServers
         props[ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG] = UUIDSerializer::class.java
         props[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = JsonSerializer::class.java
         props[ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG] = true

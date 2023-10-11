@@ -3,7 +3,8 @@ spring:
     activate:
       on-profile: local
 kafka:
-  bootstrap-servers: localhost:9092
+  producer:
+    bootstrap-servers: localhost:9092
 ---
 spring:
   config:

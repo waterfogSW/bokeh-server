@@ -7,6 +7,13 @@ spring:
     include:
       - kafka
       - websocket
+
+kafka:
+  consumer:
+    bootstrap-servers: localhost:9092
+    topics:
+      - post-create
+
 ---
 spring:
   config:
