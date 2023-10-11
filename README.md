@@ -2,6 +2,9 @@
 
 Real-time community based on keyword combinations
 
+## Server Architecture
+![image](https://github.com/waterfogSW/bokeh-server/assets/28651727/3e2c1889-2740-41cc-918c-7be07f4f4d23)
+
 
 ## Code Architecture
 
