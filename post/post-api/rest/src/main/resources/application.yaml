@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
   shutdown: graceful
 spring:
   profiles:
@@ -14,7 +14,8 @@ spring:
       on-profile: local
   docker:
     compose:
-      file: ./post/post-api/rest/docker-compose.yaml
+      enabled: false
+#      file: ./post/post-api/rest/docker-compose.yaml
 ---
 spring:
   config:

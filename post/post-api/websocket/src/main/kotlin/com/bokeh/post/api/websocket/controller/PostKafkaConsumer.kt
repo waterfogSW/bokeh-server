@@ -8,11 +8,10 @@ import org.springframework.kafka.core.reactive.ReactiveKafkaConsumerTemplate
 import org.springframework.stereotype.Controller
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
-import java.util.*
 
 @Controller
 class PostKafkaConsumer(
-    private val reactiveKafkaConsumerTemplate: ReactiveKafkaConsumerTemplate<UUID, Any>
+    private val reactiveKafkaConsumerTemplate: ReactiveKafkaConsumerTemplate<String, Any>
 ) {
 
     private val log = LoggerFactory.getLogger(this::class.java)

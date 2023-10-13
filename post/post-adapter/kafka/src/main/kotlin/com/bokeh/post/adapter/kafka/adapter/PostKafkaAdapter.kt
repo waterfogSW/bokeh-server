@@ -1,7 +1,7 @@
 package com.bokeh.post.adapter.kafka.adapter
 
 import com.bokeh.post.adapter.kafka.common.constant.KafkaTopic
-import com.bokeh.post.adapter.kafka.dto.PostCreatEvent
+import com.bokeh.post.adapter.kafka.dto.PostCreateEvent
 import com.bokeh.post.application.post.port.out.PostEventPort
 import com.bokeh.post.domain.post.domain.Post
 import org.springframework.stereotype.Component
@@ -12,8 +12,8 @@ class PostKafkaAdapter(
 ) : PostEventPort {
 
     override fun sendCreateEvent(post: Post) {
-        val event: PostCreatEvent = PostCreatEvent.from(post)
-        postKafkaProducer.send(topic = KafkaTopic.POST_CREATE, key = event.id, value = event)
+        val event: PostCreateEvent = PostCreateEvent.from(post)
+        postKafkaProducer.send(topic = KafkaTopic.POST_CREATE, event = event)
     }
 
 }
