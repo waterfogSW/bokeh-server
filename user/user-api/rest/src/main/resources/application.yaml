@@ -20,6 +20,10 @@ spring:
   docker:
     compose:
       file: ./user/user-api/rest/docker-compose.yml
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
 ---
 spring:
   config:
@@ -28,3 +32,6 @@ spring:
   docker:
     compose:
       enabled: false
+springdoc:
+  swagger-ui:
+    enabled: false
