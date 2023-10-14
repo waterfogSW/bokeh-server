@@ -18,9 +18,9 @@ import java.util.*
     ]
 )
 @ConfigurationPropertiesScan
-class UserApiApplication
+class UserApiRestApplication
 
 fun main(args: Array<String>) {
     TimeZone.setDefault(TimeZone.getTimeZone("Asia/Seoul"))
-    runApplication<UserApiApplication>(*args)
+    runApplication<UserApiRestApplication>(*args)
 }
