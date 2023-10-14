@@ -7,12 +7,10 @@ import com.bokeh.user.api.rest.dto.UserLogoutRequest
 import com.bokeh.user.application.user.port.`in`.command.UserCreateCommandUseCase
 import com.bokeh.user.application.user.port.`in`.command.UserLoginCommandUseCase
 import org.springframework.http.HttpStatus
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.ResponseStatus
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
+@RequestMapping("user")
 class UserRestController(
     private val userCreateCommandUseCase: UserCreateCommandUseCase,
     private val userLoginCommandUseCase: UserLoginCommandUseCase,
