@@ -16,8 +16,15 @@ spring:
     compose:
       enabled: false
       file: ./post/post-api/rest/docker-compose.yaml
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
 ---
 spring:
   config:
     activate:
       on-profile: dev
+springdoc:
+  swagger-ui:
+    enabled: false
