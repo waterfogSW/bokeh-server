@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
   shutdown: graceful
 spring:
   profiles:
@@ -20,7 +20,7 @@ spring:
       on-profile: local
   docker:
     compose:
-      enabled: false
+      enabled: true
       file: ./post/post-api/websocket/docker-compose.yaml
 ---
 spring:
