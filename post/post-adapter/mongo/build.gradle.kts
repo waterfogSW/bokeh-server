@@ -11,5 +11,5 @@ dependencies {
     implementation(project(":post-domain"))
     implementation(project(":post-application"))
 
-    implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
+    implementation("org.springframework.data:spring-data-mongodb")
 }

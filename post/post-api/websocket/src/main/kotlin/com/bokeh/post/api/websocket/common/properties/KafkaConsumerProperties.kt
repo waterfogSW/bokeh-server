@@ -5,4 +5,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 @ConfigurationProperties(prefix = "kafka.consumer")
 data class KafkaConsumerProperties(
     val bootstrapServers: String,
+    val groupId: String,
 )

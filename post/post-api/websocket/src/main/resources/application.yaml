@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
   shutdown: graceful
 spring:
   profiles:
@@ -11,7 +11,8 @@ spring:
 kafka:
   consumer:
     bootstrap-servers: localhost:9092
-
+    group-id: post-event-consumers
+    post-create-topic: post-create
 ---
 spring:
   config:
@@ -19,6 +20,7 @@ spring:
       on-profile: local
   docker:
     compose:
+      enabled: false
       file: ./post/post-api/websocket/docker-compose.yaml
 ---
 spring:

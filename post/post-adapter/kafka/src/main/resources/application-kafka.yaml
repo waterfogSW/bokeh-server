@@ -5,6 +5,7 @@ spring:
 kafka:
   producer:
     bootstrap-servers: localhost:9092
+    post-create-topic: post-create
 ---
 spring:
   config:

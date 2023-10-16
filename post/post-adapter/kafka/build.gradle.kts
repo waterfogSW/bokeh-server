@@ -14,5 +14,4 @@ dependencies {
     implementation("org.springframework.boot:spring-boot")
     api("org.springframework.kafka:spring-kafka:3.0.11")
     api("org.springframework.kafka:spring-kafka-test:3.0.11")
-    api("io.projectreactor.kafka:reactor-kafka:1.3.21")
 }
