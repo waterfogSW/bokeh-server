@@ -6,7 +6,7 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "`user`")
-class UserEntity(
+class UserJPAEntity(
     username: String,
     password: String,
     email: String,
