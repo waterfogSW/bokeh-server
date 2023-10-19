@@ -12,10 +12,11 @@ class PostWebSocketAdapter (
 ): PostSocketPort {
 
     companion object {
-        private const val POST_TOPIC = "/topic/post"
+        private const val POST_CREATE_TOPIC = "/topic/posts/create"
     }
 
+
     override fun sendPostCreatedEvent(post: Post) {
-        simpMessagingTemplate.convertAndSend(POST_TOPIC, post)
+        simpMessagingTemplate.convertAndSend(POST_CREATE_TOPIC, post)
     }
 }

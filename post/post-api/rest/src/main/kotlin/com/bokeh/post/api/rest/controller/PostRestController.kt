@@ -2,6 +2,7 @@ package com.bokeh.post.api.rest.controller
 
 import com.bokeh.post.api.rest.dto.PostCreateRequest
 import com.bokeh.post.application.post.port.`in`.command.PostCreateCommandUseCase
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestHeader
